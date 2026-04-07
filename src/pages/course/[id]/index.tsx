@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/router";
 import { Course, courses } from "@/Components/data/constant";
-import Videolayer from "@/Components/VideoLayer";
+import Videolayer from"@/Components/VideoLayer";
 
 function CourseDetails() {
   const [selectedModule, setSelectedModule] = useState(0);
