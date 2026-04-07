@@ -131,18 +131,18 @@ const index = () => {
       </div>
 
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="flex justify-between items-center">
-            <div className="max-w-xl">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
+        <div className="max-w-7xl mx-auto px-4 py-10 md:py-16">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
+            <div className="max-w-xl text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                 Learn without limits
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8">
                 Start, switch, or advance your career with more than 10,000
                 courses, Professional Certificates, and degrees from world-class
                 universities and companies.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <button className="px-6 py-3 bg-[#0056D2] text-white font-semibold rounded-sm">
                   Join for Free
                 </button>
@@ -151,31 +151,31 @@ const index = () => {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="w-full lg:w-auto flex justify-center">
               <img
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
                 alt="Student"
-                className="w-[500px] h-auto rounded-lg"
+                className="w-full max-w-md lg:w-[500px] h-auto rounded-lg"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white py-16">
+      <div className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold">Most Popular Certificates</h2>
-            <div className="flex space-x-4">
-              <button className="px-4 py-2 border text-[#0056D2] font-semibold rounded-sm">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-6 md:mb-8 gap-4">
+            <h2 className="text-xl md:text-2xl font-bold">Most Popular Certificates</h2>
+            <div className="flex space-x-3 md:space-x-4">
+              <button className="px-4 py-2 border text-[#0056D2] font-semibold rounded-sm text-sm md:text-base">
                 Show more
               </button>
-              <button className="px-4 py-2 text-[#0056D2] font-semibold">
+              <button className="px-4 py-2 text-[#0056D2] font-semibold text-sm md:text-base">
                 View all
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {certificates.map((cert, index) => (
               <div
                 key={index}
@@ -202,11 +202,11 @@ const index = () => {
         </div>
       </div>
 
-      <div className="bg-[#F3F4F5] py-16">
+      <div className="bg-[#F3F4F5] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-start mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start mb-6 md:mb-8 gap-4">
             <div>
-              <h2 className="text-2xl font-bold mb-2">
+              <h2 className="text-xl md:text-2xl font-bold mb-2">
                 Get started with GenAI
               </h2>
               <p className="text-gray-600">
@@ -214,11 +214,11 @@ const index = () => {
                 strategies.
               </p>
             </div>
-            <button className="ml-auto px-4 py-2 text-[#0056D2] font-semibold">
+            <button className="sm:ml-auto px-4 py-2 text-[#0056D2] font-semibold text-left sm:text-right">
               View all GenAI
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {genAICourses.map((course, index) => (
               <div
                 key={index}
@@ -245,21 +245,21 @@ const index = () => {
         </div>
       </div>
 
-      <div className="bg-white py-16">
+      <div className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-6 md:mb-8 gap-4">
             <div>
-              <h2 className="text-2xl font-bold mb-2">New on Coursera</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-2">New on Coursera</h2>
               <p className="text-gray-600">
                 Explore our newest programs, focused on delivering in-demand
                 skills.
               </p>
             </div>
-            <button className="px-4 py-2 text-[#0056D2] font-semibold">
+            <button className="px-4 py-2 text-[#0056D2] font-semibold text-left sm:text-right">
               View all
             </button>
           </div>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {newCourses.map((course, index) => (
               <Link
                 key={index}
@@ -289,10 +289,10 @@ const index = () => {
 
       <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-center">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center">
             Explore Top Categories
           </h2>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {categories.map((category, index) => (
               <div
                 key={index}
@@ -309,20 +309,20 @@ const index = () => {
         </div>
       </div>
 
-      <div className="bg-[#0056D2] text-white py-16">
+      <div className="bg-[#0056D2] text-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Join the World's Largest Learning Platform
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Join the World&apos;s Largest Learning Platform
             </h2>
             <p className="text-blue-100">
               Transform your life through education
             </p>
           </div>
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
                 <div className="text-blue-100">{stat.label}</div>
               </div>
             ))}

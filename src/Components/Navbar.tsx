@@ -1,4 +1,4 @@
-import { BookOpen, ChevronDown, Globe, Search } from "lucide-react";
+import { BookOpen, ChevronDown, Globe, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -13,6 +13,7 @@ const Navbar = () => {
   const [isexploremenuopen, setisexploremenuopen] = useState(false);
   const [isdegreemenuopen, setisdegreemenuopen] = useState(false);
   const [isusermenuopen, setisusermenuopen] = useState(false);
+  const [ismobilemenuopen, setismobilemenuopen] = useState(false);
   const topNav = [
     "For Individuals",
     "For Businesses",
@@ -87,14 +88,15 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="bg-[#1F2937] text-white">
+      {/* Top dark bar — hidden on mobile */}
+      <div className="bg-[#1F2937] text-white hidden md:block">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center space-x-4">
               <Globe className="h-4 w-4 text-gray-400" />
               <span className="text-sm text-gray-300">English</span>
             </div>
-            <div className="flex space-x-6">
+            <div className="flex flex-wrap space-x-4 lg:space-x-6">
               {topNav.map((item, index) => (
                 <a
                   key={index}
@@ -108,18 +110,22 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Main nav */}
       <div className="border-b sticky top-0 bg-white z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center text-[#0056D2] cursor-pointer">
-                <BookOpen className="h-8 w-8" />
-                <span className="ml-2 font-bold text-xl tracking-tight">
+            {/* Left: logo + desktop nav */}
+            <div className="flex items-center space-x-4 lg:space-x-6 flex-1">
+              <Link href="/" className="flex items-center text-[#0056D2] cursor-pointer flex-shrink-0">
+                <BookOpen className="h-7 w-7 lg:h-8 lg:w-8" />
+                <span className="ml-2 font-bold text-lg lg:text-xl tracking-tight">
                   Course
                 </span>
-              </div>
+              </Link>
 
-              <div className="relative">
+              {/* Explore — desktop only */}
+              <div className="relative hidden lg:block">
                 <button
                   className="text-[#0056D2] font-semibold flex items-center hover:opacity-80 transition-opacity"
                   onClick={() => {
@@ -159,11 +165,12 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="relative">
+              {/* Search — hide on small screens, flex on md+ */}
+              <div className="relative hidden md:block flex-1 max-w-md">
                 <input
                   type="text"
                   placeholder="What do you want to learn?"
-                  className={`w-[400px] pl-10 pr-4 py-2 border rounded-sm transition-all duration-200 ${
+                  className={`w-full pl-10 pr-4 py-2 border rounded-sm transition-all duration-200 ${
                     issearchfocused
                       ? "border-[#0056D2] shadow-sm"
                       : "border-gray-300"
@@ -178,7 +185,9 @@ const Navbar = () => {
                 />
               </div>
             </div>
-            <div className="flex items-center space-x-6">
+
+            {/* Right: desktop actions */}
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-shrink-0">
               <div className="relative">
                 <button
                   className="text-[#0056D2] font-semibold hover:opacity-80 transition-opacity flex items-center"
@@ -232,7 +241,6 @@ const Navbar = () => {
                     />
                   </button>
 
-                  {/* User Dropdown Menu */}
                   {isusermenuopen && (
                     <div className="absolute top-full right-0 w-[250px] bg-white shadow-lg rounded-md mt-2 py-2">
                       <Link href={`/profile`} className="block">
@@ -245,22 +253,13 @@ const Navbar = () => {
                           </div>
                         </div>
                       </Link>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
-                      >
+                      <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
                         My Courses
                       </a>
-                      <a
-                        href="/certificate"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
-                      >
+                      <a href="/certificate" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
                         My Certificates
                       </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
-                      >
+                      <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
                         Settings
                       </a>
                       <button
@@ -276,7 +275,7 @@ const Navbar = () => {
                 <>
                   <button
                     onClick={handlegooglesignin}
-                    className="px-4 py-2 bg-white border border-gray-300 rounded-sm text-gray-700 font-semibold hover:bg-gray-50 transition-colors flex items-center space-x-2"
+                    className="px-3 py-2 bg-white border border-gray-300 rounded-sm text-gray-700 font-semibold hover:bg-gray-50 transition-colors flex items-center space-x-2 text-sm"
                   >
                     <img
                       src="https://www.google.com/favicon.ico"
@@ -285,13 +284,57 @@ const Navbar = () => {
                     />
                     <span>Sign in with Google</span>
                   </button>
-                  <button className="px-4 py-2 bg-[#0056D2] text-white font-semibold rounded-sm hover:bg-blue-700 transition-colors">
+                  <button className="px-4 py-2 bg-[#0056D2] text-white font-semibold rounded-sm hover:bg-blue-700 transition-colors text-sm">
                     Join for Free
                   </button>
                 </>
               )}
             </div>
+
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden p-2 text-gray-700"
+              onClick={() => setismobilemenuopen(!ismobilemenuopen)}
+              aria-label="Toggle menu"
+            >
+              {ismobilemenuopen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile menu */}
+          {ismobilemenuopen && (
+            <div className="lg:hidden border-t py-4 space-y-3">
+              <div className="relative md:hidden">
+                <input
+                  type="text"
+                  placeholder="What do you want to learn?"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm"
+                />
+                <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+              </div>
+              <a href="#" className="block py-2 text-[#0056D2] font-semibold">Explore</a>
+              <a href="#" className="block py-2 text-[#0056D2] font-semibold">Online Degree</a>
+              <Link href="/profile" className="block py-2 text-gray-700">My Profile</Link>
+              <Link href="/certificate" className="block py-2 text-gray-700">My Certificates</Link>
+              <div className="pt-2 border-t flex flex-col space-y-2">
+                <button
+                  onClick={handlegooglesignin}
+                  className="w-full px-4 py-2 bg-white border border-gray-300 rounded-sm text-gray-700 font-semibold hover:bg-gray-50 flex items-center justify-center space-x-2"
+                >
+                  <img src="https://www.google.com/favicon.ico" alt="google" className="w-4 h-4" />
+                  <span>Sign in with Google</span>
+                </button>
+                <button className="w-full px-4 py-2 bg-[#0056D2] text-white font-semibold rounded-sm hover:bg-blue-700">
+                  Join for Free
+                </button>
+              </div>
+              <div className="pt-3 border-t flex flex-wrap gap-x-4 gap-y-2">
+                {topNav.map((item, index) => (
+                  <a key={index} href="#" className="text-sm text-gray-600">{item}</a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

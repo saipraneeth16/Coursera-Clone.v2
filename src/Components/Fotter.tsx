@@ -3,9 +3,9 @@ import React from 'react'
 
 const Fotter = () => {
   return (
-    <footer className=" text-black py-16">
+    <footer className="text-black py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="flex items-center text-gray-600 mb-6">
                 <BookOpen className="h-8 w-8 text-blue-500" />
@@ -18,111 +18,43 @@ const Fotter = () => {
             <div>
               <h3 className="font-semibold mb-4">Coursera</h3>
               <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    What We Offer
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Leadership
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Catalog
-                  </a>
-                </li>
+                <li><a href="#" className="text-gray-600 hover:text-black">About</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">What We Offer</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Leadership</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Careers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Catalog</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Learners
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Partners
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Developers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Beta Testers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Translators
-                  </a>
-                </li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Learners</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Partners</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Developers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Beta Testers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Translators</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">More</h3>
               <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Press
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Investors
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-black">
-                    Help
-                  </a>
-                </li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Press</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Investors</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Terms</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Privacy</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-black">Help</a></li>
               </ul>
             </div>
           </div>
-          <div className="flex justify-between items-center pt-8 border-t border-gray-700">
-            <p className="text-gray-400">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-8 border-t border-gray-700 gap-4">
+            <p className="text-gray-400 text-sm">
               © 2024 Coursera Inc. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-600 hover:text-black">
-                Terms
-              </a>
-              <a href="#" className="text-gray-600 hover:text-black">
-                Privacy
-              </a>
-              <a href="#" className="text-gray-600 hover:text-black">
-                Cookie Policy
-              </a>
-              <a href="#" className="text-gray-600 hover:text-black">
-                Do Not Sell My Personal Information
-              </a>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <a href="#" className="text-gray-600 hover:text-black text-sm">Terms</a>
+              <a href="#" className="text-gray-600 hover:text-black text-sm">Privacy</a>
+              <a href="#" className="text-gray-600 hover:text-black text-sm">Cookie Policy</a>
+              <a href="#" className="text-gray-600 hover:text-black text-sm">Do Not Sell My Personal Information</a>
             </div>
           </div>
         </div>

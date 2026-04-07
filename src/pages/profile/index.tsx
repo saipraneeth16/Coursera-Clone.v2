@@ -72,14 +72,14 @@ const index = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex justify-between mb-6">
-            <div className="flex space-x-4">
-              <img src={user.image} alt="" className="e-24 h-24 rounded-full" />
+    <div className="min-h-screen bg-gray-50 py-6 md:py-8">
+      <div className="max-w-4xl mx-auto px-4 space-y-6 md:space-y-8">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
+          <div className="flex flex-col md:flex-row md:justify-between mb-6 gap-4">
+            <div className="flex flex-col sm:flex-row sm:space-x-4 gap-4">
+              <img src={user.image} alt="" className="w-24 h-24 rounded-full" />
               <div>
-                <h1 className="text-2xl font-bold">{user.name}</h1>
+                <h1 className="text-xl md:text-2xl font-bold">{user.name}</h1>
                 <p className="text-gray-600">{user.title}</p>
                 <div className="flex items-center space-x-2 mt-2 text-gray-500">
                   <MapPin className="h-4 w-4" />
@@ -87,7 +87,7 @@ const index = () => {
                 </div>
               </div>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap gap-3">
               <button className="flex items-center space-x-2 px-4 py-2 border rounded-md hover:bg-gray-50">
                 <Share2 className="h-4 w-4" />
                 <span>Share</span>
@@ -99,7 +99,7 @@ const index = () => {
             </div>
           </div>
           <p className="text-gray-600">{user.bio}</p>
-          <div className="flex items-center space-x-6 mt-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-6 mt-4 gap-2">
             <div className="flex items-center space-x-2">
               <Building2 className="h-5 w-5 text-gray-400" />
               <span>{user.company}</span>
@@ -111,7 +111,7 @@ const index = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
           <div className="flex flex-wrap gap-2">
             {user.skills.map((skill, index) => (
@@ -129,7 +129,7 @@ const index = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Work Experience</h2>
             <button className="text-blue-600 flex items-center space-x-1">
@@ -154,7 +154,7 @@ const index = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Education</h2>
             <button className="text-blue-600 flex items-center space-x-1">
@@ -178,7 +178,7 @@ const index = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Project</h2>
             <button className="text-blue-600 flex items-center space-x-1">

@@ -65,24 +65,24 @@ const index = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-6xl mx-auto ">
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <div className="flex justify-between items-center">
+    <div className="min-h-screen bg-gray-50 py-6 md:py-8">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-sm p-4 md:p-6 mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-              <h1 className="text-2xl font-bold">My Certificates</h1>
+              <h1 className="text-xl md:text-2xl font-bold">My Certificates</h1>
               <p className="text-gray-600 mt-1">
                 Track your learning achievements and credentials
               </p>
             </div>
-            <button className="px-4 py-2 bg-[#0056D2] text-white rounded-md hover:bg-blue-700 transition-colors">
+            <button className="px-4 py-2 bg-[#0056D2] text-white rounded-md hover:bg-blue-700 transition-colors w-full sm:w-auto">
               Browse More Courses
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
             <div className="flex items-center space-x-3">
               <Award className="h-8 w-8 text-blue-600" />
               <div>
@@ -91,7 +91,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
             <div className="flex items-center space-x-3">
               <Clock className="h-8 w-8 text-blue-600" />
               <div>
@@ -100,7 +100,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
             <div className="flex items-center space-x-3">
               <Star className="h-8 w-8 text-blue-600" />
               <div>
@@ -109,7 +109,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
             <div className="flex items-center space-x-3">
               <CheckCircle className="h-8 w-8 text-blue-600" />
               <div>
@@ -124,23 +124,23 @@ const index = () => {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="bg-white rounded-lg shadow-sm everflow-hidden"
+              className="bg-white rounded-lg shadow-sm overflow-hidden"
             >
-              <div className="flex">
-                <div className="w-64 h-48">
+              <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-64 h-48 flex-shrink-0">
                   <img
                     src={cert.image}
                     alt=""
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex-1 p-6">
-                  <div className="flex justify-between">
+                <div className="flex-1 p-4 md:p-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     <div>
-                      <h2 className="text-xl font-semibold">{cert.name}</h2>
+                      <h2 className="text-lg md:text-xl font-semibold">{cert.name}</h2>
                       <p className="text-gray-600">{cert.provider}</p>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex flex-wrap gap-2">
                       {cert.status === "completed" ? (
                         <>
                           <button className="flex items-center space-x-2 px-4 py-2 border rounded-md hover:bg-gray-50">
@@ -159,7 +159,7 @@ const index = () => {
                       )}
                     </div>
                   </div>
-                  <div className="mt-4 grid grid-cols-3 gap-4">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <p className="text-sm text-gray-500">Issue Date</p>
                       <p className="font-medium">{cert.issueDate}</p>
