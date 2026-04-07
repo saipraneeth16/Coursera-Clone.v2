@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/router";
 import { Course, courses } from "@/Components/data/constant";
-import Videolayer from"@/Components/VideoLayer";
+import Videolayer from "@/Components/VideoLayer";
 
 function CourseDetails() {
   const [selectedModule, setSelectedModule] = useState(0);
@@ -55,20 +55,20 @@ function CourseDetails() {
   if (showmodulepage) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
-        <header className="bg-white border-b border-gray-200 py-4 px-6 flex items-center">
+        <header className="bg-white border-b border-gray-200 py-4 px-4 md:px-6 flex flex-col sm:flex-row sm:items-center gap-2">
           <button
             onClick={handlebackclick}
-            className="flex items-center text-gray-700 hover:text-blue-600 transition-colors mr-4"
+            className="flex items-center text-gray-700 hover:text-blue-600 transition-colors sm:mr-4"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             <span className="font-medium">Back to Courses</span>
           </button>
-          <h1 className="text-xl font-semibold text-gray-800 ml-2">
+          <h1 className="text-base md:text-xl font-semibold text-gray-800 sm:ml-2 truncate">
             {course.title}
           </h1>
         </header>
-        <div className="flex flex-1 overflow-hidden">
-          <div className="w-80 border-r border-gray-200 h-full overflow-y-auto flex-shrink-0">
+        <div className="flex flex-col lg:flex-row flex-1 overflow-hidden">
+          <div className="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-gray-200 lg:h-full overflow-y-auto flex-shrink-0 max-h-72 lg:max-h-none">
             <div className="p-4 border-b border-gray-200">
               <h2 className="text-lg font-semibold text-gray-800">
                 Course Modules
@@ -117,12 +117,12 @@ function CourseDetails() {
           </div>
 
           <div className="flex-1 h-full overflow-y-auto bg-gray-50">
-            <div className="max-w-full mx-auto p-6">
-              <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            <div className="max-w-full mx-auto p-4 md:p-6">
+              <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 mb-6">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
                   {Module.title}
                 </h2>
-                <div className="flex gap-4 mb-6">
+                <div className="flex flex-wrap gap-4 mb-6">
                   <span className="text-sm text-gray-600 flex items-center">
                     <Star className="h-4 w-4 mr-1" />
                     {Module.duration}
@@ -133,7 +133,7 @@ function CourseDetails() {
                   </span>
                 </div>
 
-                <div className="flex justify-between mb-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-3 mb-6">
                   <button
                     onClick={() =>
                       setselectedmoduleindex(
@@ -177,7 +177,7 @@ function CourseDetails() {
                 )}
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm p-6">
+              <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
                 <h3 className="text-xl font-semibold mb-4">
                   About this module
                 </h3>
@@ -244,35 +244,29 @@ function CourseDetails() {
       {/* Sticky Navigation Bar */}
       <div className="sticky top-0 bg-white border-b z-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-8">
-              <a
-                href="#overview"
-                className="text-gray-700 hover:text-[#0056D2]"
-              >
+          <div className="flex items-center justify-between h-16 gap-3">
+            <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8 overflow-x-auto whitespace-nowrap flex-1 scrollbar-hide">
+              <a href="#overview" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Overview
               </a>
-              <a href="#skills" className="text-gray-700 hover:text-[#0056D2]">
+              <a href="#skills" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Skills
               </a>
-              <a href="#content" className="text-gray-700 hover:text-[#0056D2]">
+              <a href="#content" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Content
               </a>
-              <a
-                href="#instructors"
-                className="text-gray-700 hover:text-[#0056D2]"
-              >
+              <a href="#instructors" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Instructors
               </a>
-              <a href="#reviews" className="text-gray-700 hover:text-[#0056D2]">
+              <a href="#reviews" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Reviews
               </a>
-              <a href="#careers" className="text-gray-700 hover:text-[#0056D2]">
+              <a href="#careers" className="text-gray-700 hover:text-[#0056D2] text-sm md:text-base">
                 Career Outcomes
               </a>
             </div>
             <button
-              className="px-6 py-2 bg-[#0056D2] text-white font-semibold rounded-sm"
+              className="px-4 md:px-6 py-2 bg-[#0056D2] text-white font-semibold rounded-sm text-sm md:text-base flex-shrink-0"
               onClick={handlemoduleclick}
             >
               Enroll Now
@@ -282,10 +276,10 @@ function CourseDetails() {
       </div>
 
       {/* Course Header */}
-      <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-12">
+      <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-start justify-between">
-            <div className="max-w-2xl">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
+            <div className="max-w-2xl w-full">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex items-center">
                   <Certificate className="h-5 w-5 text-[#0056D2]" />
@@ -299,11 +293,11 @@ function CourseDetails() {
                 </div>
               </div>
 
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 {course.title}
               </h1>
 
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-base md:text-lg text-gray-600 mb-6">
                 {showFullDescription
                   ? fullDescription
                   : fullDescription.slice(0, 200) + "..."}
@@ -315,7 +309,7 @@ function CourseDetails() {
                 </button>
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
                 <div className="flex items-center">
                   <Users className="h-5 w-5 text-gray-500" />
                   <span className="ml-2">{course.students}</span>
@@ -334,9 +328,9 @@ function CourseDetails() {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 mb-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
                 <button
-                  className="px-8 py-3 bg-[#0056D2] text-white font-semibold rounded-sm hover:bg-blue-700 transition-colors"
+                  className="px-6 sm:px-8 py-3 bg-[#0056D2] text-white font-semibold rounded-sm hover:bg-blue-700 transition-colors w-full sm:w-auto"
                   onClick={handlemoduleclick}
                 >
                   Start Free Trial
@@ -364,8 +358,8 @@ function CourseDetails() {
               </div>
             </div>
 
-            <div className="w-[400px]">
-              <div className="bg-white rounded-lg shadow-xl overflow-hidden sticky top-24">
+            <div className="w-full lg:w-[400px] flex-shrink-0">
+              <div className="bg-white rounded-lg shadow-xl overflow-hidden lg:sticky lg:top-24">
                 <div className="relative">
                   <img
                     src={course.image}
@@ -427,8 +421,8 @@ function CourseDetails() {
       {/* Career Outcomes */}
       <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">Career Outcomes</h2>
-          <div className="grid grid-cols-3 gap-8">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">Career Outcomes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {course.careerOutcomes.map((outcome, index) => {
               const IconComponent = outcome.icon; // Now it's already a React component
 
@@ -456,7 +450,7 @@ function CourseDetails() {
       {/* Skills You'll Gain */}
       <div className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6">Skills you'll gain</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-6">Skills you&apos;ll gain</h2>
           <div className="flex flex-wrap gap-3">
             {course.skills.map((skill, index) => (
               <span
@@ -473,9 +467,9 @@ function CourseDetails() {
       {/* Course Content */}
       <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold">Course Content</h2>
-            <div className="text-gray-600">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 md:mb-8 gap-3">
+            <h2 className="text-xl md:text-2xl font-bold">Course Content</h2>
+            <div className="text-gray-600 text-sm md:text-base">
               <span className="font-semibold">8</span> modules •
               <span className="font-semibold"> 180+</span> hours •
               <span className="font-semibold"> 25</span> hands-on projects
@@ -494,7 +488,7 @@ function CourseDetails() {
                   }`}
               >
                 <button
-                  className="w-full p-6 text-left"
+                  className="w-full p-4 md:p-6 text-left"
                   onClick={() =>
                     setSelectedModule(selectedModule === index ? -1 : index)
                   }
@@ -524,8 +518,8 @@ function CourseDetails() {
                 </button>
 
                 {selectedModule === index && (
-                  <div className="px-6 pb-6 pt-2 border-t">
-                    <div className="grid grid-cols-4 gap-4">
+                  <div className="px-4 md:px-6 pb-6 pt-2 border-t">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <p className="text-sm text-gray-600">Duration</p>
                         <p className="font-semibold">{module.weeks} weeks</p>
@@ -558,14 +552,14 @@ function CourseDetails() {
       {/* Testimonials */}
       <div className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">Learner Success Stories</h2>
-          <div className="grid grid-cols-2 gap-8">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">Learner Success Stories</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {course.testimonials.map((testimonial, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-start space-x-4 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 gap-3 mb-4">
                   <img
                     src={testimonial.image}
                     alt={testimonial.author}
@@ -582,7 +576,7 @@ function CourseDetails() {
                   </div>
                 </div>
                 <blockquote className="text-gray-600 italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
               </div>
             ))}
@@ -593,10 +587,10 @@ function CourseDetails() {
       {/* FAQ Section */}
       <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">
             Frequently Asked Questions
           </h2>
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-4">
               <div className="border rounded-lg p-4">
                 <h3 className="font-semibold mb-2">
@@ -645,12 +639,12 @@ function CourseDetails() {
       </div>
 
       {/* Start Learning CTA */}
-      <div className="bg-[#0056D2] text-white py-16">
+      <div className="bg-[#0056D2] text-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Data Analytics Journey?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-base md:text-xl text-blue-100 mb-8">
             Join 1.7M+ learners and launch your career in data analytics
           </p>
           <button className="px-8 py-3 bg-white text-[#0056D2] font-semibold rounded-sm hover:bg-gray-100 transition-colors">
